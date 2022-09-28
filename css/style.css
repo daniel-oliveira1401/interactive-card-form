@@ -1,0 +1,496 @@
+* {
+  font-family: "Space Grotesk", sans-serif;
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #21092f;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/*
+Today I learned:
+
+The reason why img tags leave a blank space at the bottom of divs is because, by default, img tags have display inline, so the browser adds a little space below the images which is the space that corresponds to the space between lines in a text. So, to fix img tags leaving that blank space, all that is needed is to change their display from inline to block.
+
+*/
+img {
+  display: block;
+}
+
+body {
+  min-height: 100vh;
+  height: 100vh;
+  max-height: 100vh;
+}
+
+.container {
+  height: 100%;
+}
+
+.background {
+  position: relative;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.background .card-images {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: -150px;
+  overflow: visible;
+  isolation: isolate;
+}
+
+@media only screen and (max-width: 1000px) {
+  .background .card-images {
+    top: 30px;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(0%);
+            transform: translateX(-50%) translateY(0%);
+    right: unset;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    width: clamp(1px, 100%, 380px);
+    padding-inline: 1rem;
+  }
+}
+
+.background .card-images .card-container {
+  display: block;
+  width: 300px;
+  position: relative;
+  -webkit-box-shadow: 0px 40px 60px 0px #00000047;
+          box-shadow: 0px 40px 60px 0px #00000047;
+  border-radius: 9px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .background .card-images .card-container {
+    -webkit-box-shadow: 0px 17px 60px 0px #00000047;
+            box-shadow: 0px 17px 60px 0px #00000047;
+  }
+}
+
+.background .card-images .card-container img {
+  max-width: 100%;
+}
+
+@media only screen and (max-width: 1000px) {
+  .background .card-images .card-container {
+    width: 270px;
+  }
+}
+
+.background .card-images .card-container:first-child {
+  margin-bottom: 30px;
+  z-index: 2;
+}
+
+@media only screen and (max-width: 1000px) {
+  .background .card-images .card-container:first-child {
+    margin-bottom: 0;
+    margin-top: -64px;
+    margin-right: auto;
+  }
+}
+
+.background .card-images .card-container:last-child {
+  z-index: 1;
+  margin-left: 87px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .background .card-images .card-container:last-child {
+    margin-left: auto;
+  }
+}
+
+.background .card-images .card-overlay {
+  position: absolute;
+  inset: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.background .card-images .card-overlay p,
+.background .card-images .card-overlay span {
+  color: white;
+}
+
+.background .card-images .card-overlay.front-card {
+  padding: 20px;
+}
+
+.background .card-images .card-overlay__number {
+  margin-top: auto;
+  margin-bottom: 18px;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.background .card-images .card-overlay__name {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.background .card-images .card-overlay__row-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.background .card-images .card-overlay__row-top .circle {
+  border-radius: 50%;
+}
+
+.background .card-images .card-overlay__row-top .circle.filled {
+  margin-right: 8px;
+  height: 30px;
+  width: 30px;
+  background-color: white;
+}
+
+.background .card-images .card-overlay__row-top .circle.outline {
+  height: 15px;
+  width: 15px;
+  border: 1px solid white;
+}
+
+.background .card-images .card-overlay__row-bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.background .card-images .card-overlay__row-bottom p,
+.background .card-images .card-overlay__row-bottom span {
+  font-size: 10px;
+}
+
+.background .card-images .card-overlay__row-bottom span {
+  letter-spacing: 2px;
+}
+
+.background .card-images .card-overlay__cvc {
+  position: relative;
+  margin-left: auto;
+  font-size: 14px;
+  top: 71px;
+  margin-right: 34px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .background .card-images .card-overlay__cvc {
+    font-size: 10px;
+    margin-right: 33px;
+    top: 66.5px;
+  }
+}
+
+.background .bg-mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 1000px) {
+  .background {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .background .bg-mobile {
+    display: block;
+  }
+  .background .bg-desktop {
+    display: none;
+  }
+}
+
+.background .top-section {
+  position: relative;
+  width: 30vw;
+  height: 100vh;
+}
+
+@media only screen and (max-width: 1000px) {
+  .background .top-section {
+    width: 100%;
+    height: 220px;
+    min-height: 220px;
+    max-height: 220px;
+  }
+}
+
+.background .top-section .bg-container {
+  overflow: hidden;
+  height: 100vh;
+}
+
+@media only screen and (max-width: 1000px) {
+  .background .top-section .bg-container {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.background .top-section img.bg-mobile,
+.background .top-section img.bg-desktop {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+}
+
+@media only screen and (max-width: 1000px) {
+  .background .top-section img.bg-mobile,
+  .background .top-section img.bg-desktop {
+    width: 100%;
+  }
+}
+
+.background .bottom-section {
+  width: 70vw;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media only screen and (max-width: 1000px) {
+  .background .bottom-section {
+    width: 100%;
+  }
+}
+
+.form {
+  width: clamp(200px, 100%, 380px);
+  margin-inline: 1rem;
+}
+
+.form__input-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-bottom: 22px;
+}
+
+.form__input-group.invalid .invalid-msg {
+  display: block;
+}
+
+.form__input-group.invalid input {
+  border: 2px solid #ff5252;
+}
+
+.form__input-label {
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-size: 12px;
+}
+
+.form__input {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  padding: 9px;
+  border-radius: 6px;
+  width: 100%;
+  position: relative;
+  /* Chrome, Safari, Edge, Opera */
+  /* Firefox */
+}
+
+.form__input::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: -webkit-gradient(linear, left top, right top, from(#6448fe), to(#600594));
+  background: linear-gradient(to right, #6448fe, #600594);
+  display: block;
+  z-index: 1;
+}
+
+.form__input::-webkit-input-placeholder {
+  color: #8e8593;
+}
+
+.form__input:-ms-input-placeholder {
+  color: #8e8593;
+}
+
+.form__input::-ms-input-placeholder {
+  color: #8e8593;
+}
+
+.form__input::placeholder {
+  color: #8e8593;
+}
+
+.form__input:focus {
+  outline: none;
+}
+
+.form__input::-webkit-outer-spin-button, .form__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.form__input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.form .form__input:focus ~ .input-bg {
+  opacity: 1;
+}
+
+.form__submit-btn {
+  width: 100%;
+  padding-block: 14px;
+  background-color: #21092f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.form__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.form .input-container {
+  width: 100%;
+  position: relative;
+  isolation: isolate;
+}
+
+.form .input-container .input-bg {
+  opacity: 0;
+  z-index: -1;
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  left: -1px;
+  right: -1px;
+  border-radius: 6px;
+  background: -webkit-gradient(linear, left top, right top, from(#6448fe), to(#600594));
+  background: linear-gradient(to right, #6448fe, #600594);
+}
+
+.form .invalid-msg {
+  display: none;
+  font-size: 11px;
+  color: #ff5252;
+}
+
+.form .exp-date {
+  display: block;
+}
+
+.form .exp-date label {
+  display: block;
+}
+
+.form .exp-date .input-container {
+  display: inline-block;
+  width: unset;
+}
+
+.form .exp-date .month {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  width: 3ch;
+}
+
+.form .exp-date .year {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  width: 3ch;
+}
+
+.form .cvc {
+  width: 50%;
+}
+
+.success-card {
+  display: none;
+  width: clamp(1px, 100%, 380px);
+  margin-inline: 1rem;
+}
+
+.success-card img {
+  display: block;
+  margin-inline: auto;
+  margin-bottom: 36px;
+}
+
+.success-card__title {
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.success-card__description {
+  text-align: center;
+  margin-bottom: 44px;
+  color: #8e8593;
+}
+
+.success-card__continue {
+  background-color: #21092f;
+  color: white;
+  padding-block: 14px;
+  width: 100%;
+  border-radius: 6px;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border: none;
+}
+/*# sourceMappingURL=style.css.map */

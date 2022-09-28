@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- google font -->
+		<link rel="stylesheet" href="./css/style.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
+			rel="stylesheet"
+		/>
+
+		<!-- jquery -->
+		<script
+			src="https://code.jquery.com/jquery-3.6.1.min.js"
+			integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+			crossorigin="anonymous"
+		></script>
+
+		<!-- jquery mask plugin -->
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
+			integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+
+		<link
+			rel="shortcut icon"
+			href="./images/favicon-32x32.png"
+			type="image/x-icon"
+		/>
+		<script src="./index.js" defer></script>
+		<title>Interactive Card Form</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="background">
+				<div class="top-section">
+					<div class="card-images">
+						<div class="card-container card-front-container">
+							<div class="card-overlay front-card">
+								<div class="card-overlay__row-top">
+									<div class="circle filled"></div>
+									<div class="circle outline"></div>
+								</div>
+								<p id="overlay__card-number-input" class="card-overlay__number">
+									<!-- 0000 0000 0000 0000 -->
+								</p>
+								<div class="card-overlay__row-bottom">
+									<p id="overlay__card-name-input" class="card-overlay__name">
+										<!-- Jane appleseed -->
+									</p>
+									<p id="overlay__card-exp-input" class="card-overlay__exp">
+										<span id="overlay__card-month-input"></span>/<span
+											id="overlay__card-year-input"
+										></span>
+									</p>
+								</div>
+							</div>
+
+							<img src="./images/bg-card-front.png" alt="" />
+						</div>
+						<div class="card-container card-back-container">
+							<div class="card-overlay back-card">
+								<p id="overlay__card-cvc-input" class="card-overlay__cvc">
+									<!-- 000 -->
+								</p>
+							</div>
+							<img src="./images/bg-card-back.png" alt="" />
+						</div>
+					</div>
+					<div class="bg-container">
+						<img
+							class="bg-desktop"
+							src="./images/bg-main-desktop.png"
+							alt="background gradient"
+						/>
+						<img src="./images/bg-main-mobile.png" alt="" class="bg-mobile" />
+					</div>
+				</div>
+				<div class="bottom-section">
+					<form class="form" action="">
+						<div class="form__input-group">
+							<label for="" class="form__input-label"> cardholder name </label>
+							<div class="input-container">
+								<input
+									placeholder="e.g. Jane Appleseed"
+									class="form__input"
+									type="text"
+									name=""
+									id="card-name-input"
+									required
+								/>
+								<div class="input-bg"></div>
+							</div>
+							<div class="invalid-msg">This input field is invalid.</div>
+						</div>
+						<div class="form__input-group">
+							<label for="" class="form__input-label"> Card number </label>
+							<div class="input-container">
+								<input
+									placeholder="e.g. 1234 5678 9123 0000"
+									class="form__input"
+									type="text"
+									autocomplete="cc-number"
+									maxlength="19"
+									minlength="13"
+									pattern="^([0-9]| )*$"
+									required
+									id="card-number-input"
+								/>
+								<div class="input-bg"></div>
+							</div>
+							<div class="invalid-msg">This input field is invalid.</div>
+						</div>
+						<div class="form__row">
+							<div class="form__input-group exp-date">
+								<label for="" class="form__input-label">
+									exp. date (mm/yy)
+								</label>
+								<div class="input-container">
+									<input
+										placeholder="MM"
+										maxlength="2"
+										minlength="2"
+										size="2"
+										class="form__input month"
+										type="text"
+										pattern="^[0-9]*$"
+										required
+										id="card-month-input"
+									/>
+									<div class="input-bg"></div>
+								</div>
+								<div class="input-container">
+									<input
+										placeholder="YY"
+										size="2"
+										maxlength="2"
+										minlength="2"
+										type="text"
+										class="form__input year"
+										pattern="^[0-9]*$"
+										required
+										id="card-year-input"
+									/>
+									<div class="input-bg"></div>
+								</div>
+								<div class="invalid-msg">This input field is invalid.</div>
+							</div>
+							<div class="form__input-group cvc">
+								<label for="" class="form__input-label">cvc</label>
+								<div class="input-container">
+									<input
+										placeholder="e.g. 123"
+										type="text"
+										maxlength="3"
+										size="3"
+										minlength="3"
+										class="form__input"
+										required
+										id="card-cvc-input"
+									/>
+									<div class="input-bg"></div>
+								</div>
+								<div class="invalid-msg">This input field is invalid.</div>
+							</div>
+						</div>
+
+						<button class="form__submit-btn" type="submit">Confirm</button>
+					</form>
+					<div class="success-card">
+						<img src="./images/icon-complete.svg" alt="" />
+						<h4 class="success-card__title">thank you!</h4>
+						<p class="success-card__description">
+							We've added your card details
+						</p>
+						<button class="success-card__continue">Continue</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
